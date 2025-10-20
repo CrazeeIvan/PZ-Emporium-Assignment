@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about CrazeeIvan, a passionate Project Zomboid modder and developer.">
+  <meta name="keywords" content="CrazeeIvan, Project Zomboid, modder, developer, about">
+  <meta name="author" content="CrazeeIvan">
+  <title>About | CrazeeIvan's PZ Emporium</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand">CrazeeIvan's PZ Emporium</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="mods.html" class="nav-link">Mods</a></li>
+        <li><a href="tools.html" class="nav-link">Tools</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li>
+          <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
+            🛒 Cart
+            <span id="cart-badge" class="cart-badge hidden">0</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <!-- Page Header -->
+      <header class="page-header">
+        <h1 class="page-title">About CrazeeIvan</h1>
+        <p class="page-description">Modder, developer, and Project Zomboid enthusiast</p>
+      </header>
+
+      <!-- Bio Section -->
+      <section aria-labelledby="bio-heading">
+        <article class="card">
+          <h2 id="bio-heading" class="section-title">Who I Am</h2>
+          <p class="card-description">
+            Welcome! I'm CrazeeIvan, a passionate Project Zomboid modder and developer with years
+            of experience in creating content for the community. My journey with Project Zomboid
+            began as a player who wanted to enhance the survival experience, and it evolved into
+            a full-fledged modding career.
+          </p>
+          <p class="card-description">
+            What started as simple tweaks and adjustments has grown into a collection of comprehensive
+            mods and tools that thousands of players use daily. I believe in making modding accessible
+            to everyone, which is why I focus on creating both player-facing mods and developer tools.
+          </p>
+        </article>
+      </section>
+
+      <!-- Work Section -->
+      <section aria-labelledby="work-heading">
+        <article class="card">
+          <h2 id="work-heading" class="section-title">What I Do</h2>
+          <p class="card-description">
+            I specialize in creating mods, tools, and utilities for the Project Zomboid community.
+            My work focuses on three main areas:
+          </p>
+          <ul style="color: var(--text-secondary); margin-left: 2rem; line-height: 2;">
+            <li><strong style="color: var(--text-primary);">Gameplay Mods:</strong> Enhancing survival mechanics, adding new features, and improving quality of life</li>
+            <li><strong style="color: var(--text-primary);">Development Tools:</strong> Creating utilities that help other modders build better content</li>
+            <li><strong style="color: var(--text-primary);">Custom Commissions:</strong> Working directly with players to create personalized mod experiences</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Skills Section -->
+      <section aria-labelledby="skills-heading">
+        <article class="card">
+          <h2 id="skills-heading" class="section-title">Technical Skills</h2>
+          <div class="card-grid">
+            <div>
+              <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;">Programming Languages</h3>
+              <p class="card-description" style="margin: 0;">Lua, JavaScript, HTML/CSS, Java</p>
+            </div>
+            <div>
+              <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;">Modding Experience</h3>
+              <p class="card-description" style="margin: 0;">5+ years with Project Zomboid API</p>
+            </div>
+            <div>
+              <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;">Specializations</h3>
+              <p class="card-description" style="margin: 0;">Game mechanics, UI/UX, Optimization</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Contact Section -->
+      <section aria-labelledby="contact-heading">
+        <article class="card">
+          <h2 id="contact-heading" class="section-title">Get in Touch</h2>
+          <p class="card-description">
+            Interested in collaborating, have questions about my mods, or want to commission custom work?
+            Feel free to reach out through any of the following channels:
+          </p>
+          <address style="font-style: normal; margin-top: 1.5rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-light);">Email:</strong> crazeivan@pzemporium.com
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-light);">Discord:</strong> CrazeeIvan#1337
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-light);">GitHub:</strong> github.com/crazeivan
+            </p>
+            <p style="color: var(--text-secondary);">
+              <strong style="color: var(--accent-light);">Steam Workshop:</strong> steamcommunity.com/id/crazeivan
+            </p>
+          </address>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Shopping Cart Modal -->
+  <div id="cart-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Shopping Cart</h2>
+        <button class="modal-close" onclick="closeCart()" aria-label="Close cart">&times;</button>
+      </div>
+
+      <div id="empty-cart" class="empty-cart">
+        <p>Your cart is empty</p>
+      </div>
+
+      <div id="cart-items"></div>
+
+      <div id="cart-total" class="cart-total hidden">
+        <span>Total:</span>
+        <span class="price">$0.00</span>
+      </div>
+
+      <div class="mt-lg" style="display: flex; gap: 1rem;">
+        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;">
+          Checkout
+        </button>
+        <button class="btn btn-secondary" onclick="cart.clearCart()">
+          Clear Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/cart.js"></script>
+</body>
+</html>
