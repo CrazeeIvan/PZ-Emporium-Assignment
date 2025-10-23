@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Welcome to CrazeeIvan's PZ Emporium - your destination for Project Zomboid mods, tools, and custom development services.">
-  <meta name="keywords" content="Project Zomboid, mods, modding, tools, CrazeeIvan, gaming">
-  <meta name="author" content="CrazeeIvan">
-  <title>Home | CrazeeIvan's PZ Emporium</title>
+  <meta name="description" data-content="site.tagline" data-content-attr="content" content="">
+  <meta name="keywords" data-content="site.keywords" data-content-attr="content" content="">
+  <meta name="author" data-content="site.author" data-content-attr="content" content="">
+  <title data-content="pages.home.title"></title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-brand" data-content="site.name">CrazeeIvan's PZ Emporium</a>
+      <a href="index.html" class="nav-brand" data-content="site.name"></a>
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link" data-content="navigation.home">Home</a></li>
-        <li><a href="mods.html" class="nav-link" data-content="navigation.mods">Mods</a></li>
-        <li><a href="tools.html" class="nav-link" data-content="navigation.tools">Tools</a></li>
-        <li><a href="shop.html" class="nav-link" data-content="navigation.shop">Shop</a></li>
-        <li><a href="about.html" class="nav-link" data-content="navigation.about">About</a></li>
+        <li><a href="index.html" class="nav-link" data-content="navigation.home"></a></li>
+        <li><a href="mods.html" class="nav-link" data-content="navigation.mods"></a></li>
+        <li><a href="tools.html" class="nav-link" data-content="navigation.tools"></a></li>
+        <li><a href="shop.html" class="nav-link" data-content="navigation.shop"></a></li>
+        <li><a href="about.html" class="nav-link" data-content="navigation.about"></a></li>
         <li>
           <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
-            🛒 <span data-content="navigation.cart">Cart</span>
+            <span data-content="navigation.cart"></span>
             <span id="cart-badge" class="cart-badge hidden">0</span>
           </button>
         </li>
@@ -35,40 +35,29 @@
     <div class="container">
       <!-- Page Header -->
       <header class="page-header">
-        <h1 class="page-title gradient-text" data-content="pages.home.title">Welcome to CrazeeIvan's PZ Emporium</h1>
-        <p class="page-description" data-content="pages.home.description">
-          Your one-stop shop for Project Zomboid mods, tools, and custom commissions
-        </p>
+        <h1 class="page-title gradient-text" data-content="pages.home.title"></h1>
+        <p class="page-description" data-content="pages.home.description"></p>
       </header>
 
       <!-- Features Section -->
       <section aria-label="Main features">
         <div class="card-grid">
           <article class="card">
-            <h2 class="card-title">Mods Portfolio</h2>
-            <p class="card-description">
-              Browse our collection of Project Zomboid mods designed to enhance your gameplay experience.
-              From survival improvements to quality-of-life enhancements.
-            </p>
-            <a href="mods.html" class="btn btn-primary">View Mods</a>
+            <h2 class="card-title" data-content="pages.home.features.0.title"></h2>
+            <p class="card-description" data-content="pages.home.features.0.description"></p>
+            <a href="mods.html" class="btn btn-primary" data-content="pages.home.features.0.buttonText"></a>
           </article>
 
           <article class="card">
-            <h2 class="card-title">Tools & Utilities</h2>
-            <p class="card-description">
-              Check out helpful tools for modders and players. Streamline your workflow with our
-              custom-built utilities and development aids.
-            </p>
-            <a href="tools.html" class="btn btn-primary">Explore Tools</a>
+            <h2 class="card-title" data-content="pages.home.features.1.title"></h2>
+            <p class="card-description" data-content="pages.home.features.1.description"></p>
+            <a href="tools.html" class="btn btn-primary" data-content="pages.home.features.1.buttonText"></a>
           </article>
 
           <article class="card">
-            <h2 class="card-title">Shop</h2>
-            <p class="card-description">
-              Support development with tips or commission custom work tailored to your needs.
-              Help keep the mods and tools free for everyone.
-            </p>
-            <a href="shop.html" class="btn btn-primary">Visit Shop</a>
+            <h2 class="card-title" data-content="pages.home.features.2.title"></h2>
+            <p class="card-description" data-content="pages.home.features.2.description"></p>
+            <a href="shop.html" class="btn btn-primary" data-content="pages.home.features.2.buttonText"></a>
           </article>
         </div>
       </section>
@@ -76,17 +65,10 @@
       <!-- About Preview Section -->
       <section class="mt-lg">
         <div class="card">
-          <h2 class="section-title" data-content="pages.home.aboutPreview.title">About This Project</h2>
-          <p class="card-description" data-content="pages.home.aboutPreview.paragraphs.0">
-            CrazeeIvan's PZ Emporium is a community-driven platform dedicated to enhancing the
-            Project Zomboid experience. Whether you're a player looking for mods, a modder seeking
-            tools, or someone interested in custom development, you'll find something here.
-          </p>
-          <p class="card-description" data-content="pages.home.aboutPreview.paragraphs.1">
-            All projects are created with passion for the game and the community. Learn more about
-            the creator and the vision behind this platform.
-          </p>
-          <a href="about.html" class="btn btn-secondary" data-content="pages.home.aboutPreview.buttonText">Learn More</a>
+          <h2 class="section-title" data-content="pages.home.aboutPreview.title"></h2>
+          <p class="card-description" data-content="pages.home.aboutPreview.paragraphs.0"></p>
+          <p class="card-description" data-content="pages.home.aboutPreview.paragraphs.1"></p>
+          <a href="about.html" class="btn btn-secondary" data-content="pages.home.aboutPreview.buttonText"></a>
         </div>
       </section>
     </div>
@@ -96,33 +78,30 @@
   <div id="cart-modal" class="modal-overlay hidden">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" data-content="cart.title">Shopping Cart</h2>
+        <h2 class="modal-title" data-content="cart.title"></h2>
         <button class="modal-close" onclick="closeCart()" aria-label="Close cart">&times;</button>
       </div>
 
       <div id="empty-cart" class="empty-cart">
-        <p data-content="cart.emptyMessage">Your cart is empty</p>
+        <p data-content="cart.emptyMessage"></p>
       </div>
 
       <div id="cart-items"></div>
 
       <div id="cart-total" class="cart-total hidden">
-        <span data-content="cart.total">Total:</span>
-        <span class="price">$0.00</span>
+        <span data-content="cart.total"></span>
+        <span class="price" data-content="cart.pricePrefix"></span>
       </div>
 
       <div class="mt-lg" style="display: flex; gap: 1rem;">
-        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;" data-content="cart.checkoutButton">
-          Checkout
-        </button>
-        <button class="btn btn-secondary" onclick="cart.clearCart()" data-content="cart.clearButton">
-          Clear Cart
-        </button>
+        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;" data-content="cart.checkoutButton"></button>
+        <button class="btn btn-secondary" onclick="cart.clearCart()" data-content="cart.clearButton"></button>
       </div>
     </div>
   </div>
 
   <!-- JavaScript -->
+  <script src="js/data-loader.js"></script>
   <script src="js/cart.js"></script>
 </body>
 </html>

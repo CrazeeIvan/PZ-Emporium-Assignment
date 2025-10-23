@@ -3,6 +3,41 @@
  * This demonstrates the use of HTML5 LocalStorage API for persistent data
  */
 
+const DEFAULT_CART_STRINGS = {
+  title: 'Shopping Cart',
+  emptyMessage: 'Your cart is empty',
+  total: 'Total:',
+  checkoutButton: 'Checkout',
+  clearButton: 'Clear Cart',
+  removeButton: 'Remove',
+  checkoutMessage: 'Thank you for your order!\n\nTotal: ${total}\n\nThis is a demo - no actual payment will be processed.',
+  emptyCartAlert: 'Your cart is empty!',
+  addedNotification: '{item} added to cart!',
+  removedNotification: '{item} removed from cart',
+  clearedNotification: 'Cart cleared',
+  pricePrefix: '$'
+};
+
+function getCartStrings() {
+  const content = window.siteContent?.cart || {};
+  return {
+    ...DEFAULT_CART_STRINGS,
+    ...content
+  };
+}
+
+function formatTemplate(template, replacements) {
+  if (!template) {
+    return '';
+  }
+  return Object.entries(replacements).reduce((result, [key, value]) => {
+    const stringValue = String(value);
+    const bracePattern = new RegExp(`\\{${key}\\}`, 'g');
+    const dollarPattern = new RegExp(`\\$\\{${key}\\}`, 'g');
+    return result.replace(bracePattern, stringValue).replace(dollarPattern, stringValue);
+  }, template);
+}
+
 class ShoppingCart {
   constructor() {
     this.storageKey = 'pz-emporium-cart';
@@ -48,7 +83,9 @@ class ShoppingCart {
 
     this.saveCart();
     this.updateCartDisplay();
-    this.showNotification(`${item.name} added to cart!`);
+    const { addedNotification } = getCartStrings();
+    const message = formatTemplate(addedNotification, { item: item.name });
+    this.showNotification(message);
   }
 
   /**
@@ -59,7 +96,9 @@ class ShoppingCart {
       const removedItem = this.cart.splice(index, 1)[0];
       this.saveCart();
       this.updateCartDisplay();
-      this.showNotification(`${removedItem.name} removed from cart`);
+      const { removedNotification } = getCartStrings();
+      const message = formatTemplate(removedNotification, { item: removedItem.name });
+      this.showNotification(message);
     }
   }
 
@@ -70,7 +109,8 @@ class ShoppingCart {
     this.cart = [];
     this.saveCart();
     this.updateCartDisplay();
-    this.showNotification('Cart cleared');
+    const { clearedNotification } = getCartStrings();
+    this.showNotification(clearedNotification);
   }
 
   /**
@@ -111,6 +151,8 @@ class ShoppingCart {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     const emptyCart = document.getElementById('empty-cart');
+    const cartContent = getCartStrings();
+    const pricePrefix = cartContent.pricePrefix || '';
 
     if (!cartItemsContainer) return;
 
@@ -136,8 +178,8 @@ class ShoppingCart {
           <p>${item.description}</p>
         </div>
         <div style="display: flex; align-items: center; gap: 1rem;">
-          <span class="cart-item-price">$${item.price.toFixed(2)}</span>
-          <button class="cart-remove" onclick="cart.removeItem(${index})">Remove</button>
+          <span class="cart-item-price">${pricePrefix}${item.price.toFixed(2)}</span>
+          <button class="cart-remove" onclick="cart.removeItem(${index})">${cartContent.removeButton}</button>
         </div>
       `;
       cartItemsContainer.appendChild(itemElement);
@@ -146,8 +188,8 @@ class ShoppingCart {
     // Update total
     if (cartTotal) {
       cartTotal.innerHTML = `
-        <span>Total:</span>
-        <span class="price">$${this.getTotal().toFixed(2)}</span>
+        <span>${cartContent.total}</span>
+        <span class="price">${pricePrefix}${this.getTotal().toFixed(2)}</span>
       `;
     }
   }
@@ -211,12 +253,16 @@ function closeCart() {
 }
 
 function checkout() {
+  const cartContent = getCartStrings();
   if (cart.getItemCount() === 0) {
-    alert('Your cart is empty!');
+    alert(cartContent.emptyCartAlert);
     return;
   }
 
-  alert(`Thank you for your order!\n\nTotal: $${cart.getTotal().toFixed(2)}\n\nThis is a demo - no actual payment will be processed.`);
+  const total = cart.getTotal().toFixed(2);
+  const totalDisplay = `${cartContent.pricePrefix || ''}${total}`;
+  const message = formatTemplate(cartContent.checkoutMessage, { total: totalDisplay });
+  alert(message);
   cart.clearCart();
   closeCart();
 }

@@ -216,7 +216,7 @@ See `SYNC-GUIDE.md` for detailed instructions.
 
 ---
 
-**Created by**: [Your Name]
-**Course**: [Course Name]
+**Created by**: Ciaran Maher
+**Course**: SD-TA-003
 **Date**: October 2025
-**Assignment**: Website Design & Implementation
+**Assignment**: SD-TA-003 - Web Development (HTML, JavaScript, CSS3)

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Data Loader - Dynamically loads content from JSON files
  * This allows both the static and Next.js sites to share the same content
  */
@@ -14,18 +14,28 @@ class DataLoader {
    * Note: Data is stored in the Next.js project's shared-data folder
    */
   async loadJSON(filename) {
-    if (this.cache[filename]) {
+    // Skip cache in development to always get fresh data
+    const useCache = false; // Set to true for production
+
+    if (useCache && this.cache[filename]) {
       return this.cache[filename];
     }
 
     try {
       // Fetch from the shared-data folder in the Next.js project
-      const response = await fetch(`../CrazeeIvan's PZ Emporium/shared-data/${filename}`);
+      // Add cache-busting for development
+      const timestamp = useCache ? '' : `?t=${Date.now()}`;
+      const response = await fetch(`../CrazeeIvan's PZ Emporium/shared-data/${filename}${timestamp}`, {
+        cache: 'no-store' // Disable browser cache
+      });
       if (!response.ok) {
         throw new Error(`Failed to load ${filename}`);
       }
       const data = await response.json();
-      this.cache[filename] = data;
+
+      if (useCache) {
+        this.cache[filename] = data;
+      }
       return data;
     } catch (error) {
       console.error(`Error loading ${filename}:`, error);
@@ -39,6 +49,9 @@ class DataLoader {
   async loadContent() {
     if (!this.content) {
       this.content = await this.loadJSON('content.json');
+    }
+    if (typeof window !== 'undefined') {
+      window.siteContent = this.content;
     }
     return this.content;
   }
@@ -73,9 +86,22 @@ class DataLoader {
     // Apply all elements with data-content attribute
     document.querySelectorAll('[data-content]').forEach(element => {
       const path = element.getAttribute('data-content');
+      const attr = element.getAttribute('data-content-attr');
       const value = this.getNestedValue(content, path);
 
-      if (value !== undefined && value !== null) {
+      if (value === undefined || value === null) {
+        return;
+      }
+
+      if (attr) {
+        if (attr === 'text') {
+          element.textContent = value;
+        } else if (attr === 'html') {
+          element.innerHTML = value;
+        } else {
+          element.setAttribute(attr, value);
+        }
+      } else {
         element.textContent = value;
       }
     });
@@ -92,6 +118,9 @@ class DataLoader {
 
 // Create global instance
 const dataLoader = new DataLoader();
+if (typeof window !== 'undefined') {
+  window.dataLoader = dataLoader;
+}
 
 /**
  * Render mods on the mods page
@@ -108,7 +137,7 @@ async function renderMods() {
       <p class="card-description">${mod.description}</p>
       <div class="card-footer">
         <span class="card-meta">Downloads: ${mod.downloads}</span>
-        <span class="card-meta">Rating: ${mod.rating}/5 ⭐</span>
+        <span class="card-meta">Rating: ${mod.rating}/5</span>
       </div>
     </article>
   `).join('');
@@ -141,23 +170,33 @@ async function renderTips() {
   const container = document.getElementById('tips-container');
   if (!container) return;
 
+  const content = await dataLoader.loadContent();
   const tips = await dataLoader.loadTips();
+  const cart = content.cart || {};
+  const pricePrefix = cart.pricePrefix || '$';
+  const addButtonText = cart.addButton || 'Add to Cart';
 
-  container.innerHTML = tips.map(tip => `
+  container.innerHTML = tips
+    .map((tip) => {
+      const safeName = JSON.stringify(tip.name);
+      const safeDescription = JSON.stringify(tip.description);
+      return `
     <article class="card">
       <h3 class="card-title">${tip.name}</h3>
       <p class="card-description">${tip.description}</p>
       <div class="card-footer">
-        <span class="price">$${tip.price}</span>
+        <span class="price">${pricePrefix}${tip.price}</span>
         <button
           class="btn btn-primary"
-          onclick="addToCart('${tip.name}', ${tip.price}, '${tip.description}')"
+          onclick="addToCart(${safeName}, ${tip.price}, ${safeDescription})"
         >
-          Add to Cart
+          ${addButtonText}
         </button>
       </div>
     </article>
-  `).join('');
+  `;
+    })
+    .join('');
 }
 
 /**
@@ -172,3 +211,9 @@ document.addEventListener('DOMContentLoaded', async function() {
   await renderTools();
   await renderTips();
 });
+
+
+
+
+
+

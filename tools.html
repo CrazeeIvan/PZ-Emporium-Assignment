@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Helpful tools and utilities for Project Zomboid modders and players created by CrazeeIvan.">
-  <meta name="keywords" content="Project Zomboid tools, modding tools, PZ utilities, development tools">
-  <meta name="author" content="CrazeeIvan">
-  <title>Tools & Utilities | CrazeeIvan's PZ Emporium</title>
+  <meta name="description" data-content="pages.tools.description" data-content-attr="content" content="">
+  <meta name="keywords" data-content="site.keywords" data-content-attr="content" content="">
+  <meta name="author" data-content="site.author" data-content-attr="content" content="">
+  <title data-content="pages.tools.title"></title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-brand">CrazeeIvan's PZ Emporium</a>
+      <a href="index.html" class="nav-brand" data-content="site.name"></a>
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="mods.html" class="nav-link">Mods</a></li>
-        <li><a href="tools.html" class="nav-link">Tools</a></li>
-        <li><a href="shop.html" class="nav-link">Shop</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="index.html" class="nav-link" data-content="navigation.home"></a></li>
+        <li><a href="mods.html" class="nav-link" data-content="navigation.mods"></a></li>
+        <li><a href="tools.html" class="nav-link" data-content="navigation.tools"></a></li>
+        <li><a href="shop.html" class="nav-link" data-content="navigation.shop"></a></li>
+        <li><a href="about.html" class="nav-link" data-content="navigation.about"></a></li>
         <li>
           <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
-            🛒 Cart
+            <span data-content="navigation.cart"></span>
             <span id="cart-badge" class="cart-badge hidden">0</span>
           </button>
         </li>
@@ -35,8 +35,8 @@
     <div class="container">
       <!-- Page Header -->
       <header class="page-header">
-        <h1 class="page-title">Tools & Utilities</h1>
-        <p class="page-description">Productivity tools for modders and players</p>
+        <h1 class="page-title" data-content="pages.tools.title"></h1>
+        <p class="page-description" data-content="pages.tools.description"></p>
       </header>
 
       <!-- Tools Grid -->
@@ -48,19 +48,29 @@
       <!-- Documentation Section -->
       <section class="mt-lg">
         <article class="card">
-          <h2 class="section-title">Documentation & Resources</h2>
-          <p class="card-description">
-            Each tool comes with comprehensive documentation including:
-          </p>
+          <h2 class="section-title" data-content="pages.tools.documentationTitle"></h2>
+          <p class="card-description" data-content="pages.tools.documentationIntro"></p>
           <ul style="color: var(--text-secondary); margin-left: 2rem; line-height: 2;">
-            <li><strong style="color: var(--text-primary);">Quick Start Guides:</strong> Get up and running in minutes</li>
-            <li><strong style="color: var(--text-primary);">Video Tutorials:</strong> Step-by-step walkthroughs</li>
-            <li><strong style="color: var(--text-primary);">API Documentation:</strong> For advanced users and developers</li>
-            <li><strong style="color: var(--text-primary);">Community Forums:</strong> Get help and share tips</li>
+            <li>
+              <strong style="color: var(--text-primary);" data-content="pages.tools.documentationFeatures.0.title"></strong>
+              <span data-content="pages.tools.documentationFeatures.0.description"></span>
+            </li>
+            <li>
+              <strong style="color: var(--text-primary);" data-content="pages.tools.documentationFeatures.1.title"></strong>
+              <span data-content="pages.tools.documentationFeatures.1.description"></span>
+            </li>
+            <li>
+              <strong style="color: var(--text-primary);" data-content="pages.tools.documentationFeatures.2.title"></strong>
+              <span data-content="pages.tools.documentationFeatures.2.description"></span>
+            </li>
+            <li>
+              <strong style="color: var(--text-primary);" data-content="pages.tools.documentationFeatures.3.title"></strong>
+              <span data-content="pages.tools.documentationFeatures.3.description"></span>
+            </li>
           </ul>
           <div class="mt-lg">
-            <a href="#" class="btn btn-primary">View Documentation</a>
-            <a href="#" class="btn btn-secondary" style="margin-left: 1rem;">Join Discord</a>
+            <a href="#" class="btn btn-primary" data-content="pages.tools.buttons.documentation"></a>
+            <a href="#" class="btn btn-secondary" style="margin-left: 1rem;" data-content="pages.tools.buttons.discord"></a>
           </div>
         </article>
       </section>
@@ -71,28 +81,24 @@
   <div id="cart-modal" class="modal-overlay hidden">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title">Shopping Cart</h2>
+        <h2 class="modal-title" data-content="cart.title"></h2>
         <button class="modal-close" onclick="closeCart()" aria-label="Close cart">&times;</button>
       </div>
 
       <div id="empty-cart" class="empty-cart">
-        <p>Your cart is empty</p>
+        <p data-content="cart.emptyMessage"></p>
       </div>
 
       <div id="cart-items"></div>
 
       <div id="cart-total" class="cart-total hidden">
-        <span>Total:</span>
-        <span class="price">$0.00</span>
+        <span data-content="cart.total"></span>
+        <span class="price" data-content="cart.pricePrefix"></span>
       </div>
 
       <div class="mt-lg" style="display: flex; gap: 1rem;">
-        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;">
-          Checkout
-        </button>
-        <button class="btn btn-secondary" onclick="cart.clearCart()">
-          Clear Cart
-        </button>
+        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;" data-content="cart.checkoutButton"></button>
+        <button class="btn btn-secondary" onclick="cart.clearCart()" data-content="cart.clearButton"></button>
       </div>
     </div>
   </div>
