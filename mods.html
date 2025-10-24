@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" data-content="pages.mods.description" data-content-attr="content" content="">
-  <meta name="keywords" data-content="site.keywords" data-content-attr="content" content="">
-  <meta name="author" data-content="site.author" data-content-attr="content" content="">
-  <title data-content="pages.mods.title"></title>
+  <meta name="description" content="Explore my collection of Project Zomboid modifications">
+  <meta name="keywords" content="Project Zomboid, mods, tools, CrazeeIvan">
+  <meta name="author" content="CrazeeIvan">
+  <title>Mods Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-brand" data-content="site.name"></a>
+      <a href="index.html" class="nav-brand">CrazeeIvan's PZ Emporium</a>
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link" data-content="navigation.home"></a></li>
-        <li><a href="mods.html" class="nav-link" data-content="navigation.mods"></a></li>
-        <li><a href="tools.html" class="nav-link" data-content="navigation.tools"></a></li>
-        <li><a href="shop.html" class="nav-link" data-content="navigation.shop"></a></li>
-        <li><a href="about.html" class="nav-link" data-content="navigation.about"></a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="mods.html" class="nav-link">Mods</a></li>
+        <li><a href="tools.html" class="nav-link">Tools</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
         <li>
           <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
-            <span data-content="navigation.cart"></span>
+            <span>Cart</span>
             <span id="cart-badge" class="cart-badge hidden">0</span>
           </button>
         </li>
@@ -35,27 +35,82 @@
     <div class="container">
       <!-- Page Header -->
       <header class="page-header">
-        <h1 class="page-title" data-content="pages.mods.title"></h1>
-        <p class="page-description" data-content="pages.mods.description"></p>
+        <h1 class="page-title">Mods Portfolio</h1>
+        <p class="page-description">Explore my collection of Project Zomboid modifications</p>
       </header>
 
       <!-- Mods Grid -->
       <section aria-label="Available mods">
-        <!-- Dynamically loaded from data/mods.json -->
-        <div id="mods-container" class="card-grid"></div>
+        <div class="card-grid">
+          
+          <article class="card">
+            <h2 class="card-title">Enhanced Survival Mechanics</h2>
+            <p class="card-description">A comprehensive overhaul of the survival system, adding realistic needs management, advanced crafting recipes, and immersive survival challenges. Perfect for players seeking a more hardcore experience.</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <span>⬇️ 12.5k</span>
+              <span>⭐ 4.8</span>
+            </div>
+          </article>
+          
+          <article class="card">
+            <h2 class="card-title">Better Base Building</h2>
+            <p class="card-description">Expand your construction possibilities with new building materials, furniture options, and defensive structures. Includes quality-of-life improvements for base management and organization.</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <span>⬇️ 8.9k</span>
+              <span>⭐ 4.6</span>
+            </div>
+          </article>
+          
+          <article class="card">
+            <h2 class="card-title">Loot Rebalance Plus</h2>
+            <p class="card-description">Carefully balanced loot distribution that makes every scavenging run meaningful. Reduces clutter while maintaining challenge and rewarding thorough exploration.</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <span>⬇️ 15.2k</span>
+              <span>⭐ 4.9</span>
+            </div>
+          </article>
+          
+          <article class="card">
+            <h2 class="card-title">Immersive Sound Overhaul</h2>
+            <p class="card-description">Enhanced audio experience with realistic sound propagation, improved zombie sounds, and atmospheric environmental audio. Increases tension and immersion.</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <span>⬇️ 6.7k</span>
+              <span>⭐ 4.7</span>
+            </div>
+          </article>
+          
+          <article class="card">
+            <h2 class="card-title">Advanced Vehicles</h2>
+            <p class="card-description">Adds new vehicle types, improves vehicle physics, and introduces a detailed maintenance system. Includes customization options and vehicle-specific storage solutions.</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <span>⬇️ 11.3k</span>
+              <span>⭐ 4.8</span>
+            </div>
+          </article>
+          
+          <article class="card">
+            <h2 class="card-title">UI Modernization Pack</h2>
+            <p class="card-description">A complete UI refresh featuring modern design principles, improved readability, better inventory management, and customizable interface elements.</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+              <span>⬇️ 9.1k</span>
+              <span>⭐ 4.5</span>
+            </div>
+          </article>
+          
+        </div>
       </section>
 
       <!-- Installation Info -->
       <section class="mt-lg">
         <article class="card">
-          <h2 class="section-title" data-content="pages.mods.installationTitle"></h2>
-          <p class="card-description" data-content="pages.mods.installationIntro"></p>
+          <h2 class="section-title">Installation Instructions</h2>
+          <p class="card-description">All mods are available on the Steam Workshop. Simply subscribe to the mods you want, and they'll automatically download and install. For manual installation:</p>
           <ol style="color: var(--text-secondary); margin-left: 2rem; line-height: 2;">
-            <li data-content="pages.mods.installationSteps.0"></li>
-            <li data-content="pages.mods.installationSteps.1"></li>
-            <li data-content="pages.mods.installationSteps.2"></li>
-            <li data-content="pages.mods.installationSteps.3"></li>
-            <li data-content="pages.mods.installationSteps.4"></li>
+            <li>Download the mod file from the workshop or GitHub</li>
+            <li>Navigate to your Project Zomboid mods folder</li>
+            <li>Extract the mod folder into the mods directory</li>
+            <li>Enable the mod in the game's mod menu</li>
+            <li>Restart the game for changes to take effect</li>
           </ol>
         </article>
       </section>
@@ -66,30 +121,29 @@
   <div id="cart-modal" class="modal-overlay hidden">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" data-content="cart.title"></h2>
+        <h2 class="modal-title">Shopping Cart</h2>
         <button class="modal-close" onclick="closeCart()" aria-label="Close cart">&times;</button>
       </div>
 
       <div id="empty-cart" class="empty-cart">
-        <p data-content="cart.emptyMessage"></p>
+        <p>Your cart is empty</p>
       </div>
 
       <div id="cart-items"></div>
 
       <div id="cart-total" class="cart-total hidden">
-        <span data-content="cart.total"></span>
-        <span class="price" data-content="cart.pricePrefix"></span>
+        <span>Total:</span>
+        <span class="price">$</span>
       </div>
 
       <div class="mt-lg" style="display: flex; gap: 1rem;">
-        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;" data-content="cart.checkoutButton"></button>
-        <button class="btn btn-secondary" onclick="cart.clearCart()" data-content="cart.clearButton"></button>
+        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;">Checkout</button>
+        <button class="btn btn-secondary" onclick="cart.clearCart()">Clear Cart</button>
       </div>
     </div>
   </div>
 
   <!-- JavaScript -->
-  <script src="js/data-loader.js"></script>
   <script src="js/cart.js"></script>
 </body>
 </html>

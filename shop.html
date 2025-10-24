@@ -1,28 +1,28 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" data-content="pages.shop.description" data-content-attr="content" content="">
-  <meta name="keywords" data-content="site.keywords" data-content-attr="content" content="">
-  <meta name="author" data-content="site.author" data-content-attr="content" content="">
-  <title data-content="pages.shop.title"></title>
+  <meta name="description" content="Support development or request custom work">
+  <meta name="keywords" content="Project Zomboid, mods, tools, CrazeeIvan">
+  <meta name="author" content="CrazeeIvan">
+  <title>Shop</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="nav-brand" data-content="site.name"></a>
+      <a href="index.html" class="nav-brand">CrazeeIvan's PZ Emporium</a>
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link" data-content="navigation.home"></a></li>
-        <li><a href="mods.html" class="nav-link" data-content="navigation.mods"></a></li>
-        <li><a href="tools.html" class="nav-link" data-content="navigation.tools"></a></li>
-        <li><a href="shop.html" class="nav-link" data-content="navigation.shop"></a></li>
-        <li><a href="about.html" class="nav-link" data-content="navigation.about"></a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="mods.html" class="nav-link">Mods</a></li>
+        <li><a href="tools.html" class="nav-link">Tools</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
         <li>
           <button class="cart-btn" onclick="openCart()" aria-label="Shopping cart">
-            <span data-content="navigation.cart"></span>
+            <span>Cart</span>
             <span id="cart-badge" class="cart-badge hidden">0</span>
           </button>
         </li>
@@ -35,56 +35,84 @@
     <div class="container">
       <!-- Page Header -->
       <header class="page-header">
-        <h1 class="page-title" data-content="pages.shop.title"></h1>
-        <p class="page-description" data-content="pages.shop.description"></p>
+        <h1 class="page-title">Shop</h1>
+        <p class="page-description">Support development or request custom work</p>
       </header>
 
       <!-- Tips Section -->
       <section aria-labelledby="tips-heading">
-        <h2 id="tips-heading" class="section-title" data-content="pages.shop.tipsTitle"></h2>
-        <p style="color: var(--text-secondary); text-align: center; margin-bottom: 2rem;" data-content="pages.shop.tipsIntro"></p>
-        <!-- Dynamically loaded from data/tips.json -->
-        <div id="tips-container" class="card-grid"></div>
+        <h2 id="tips-heading" class="section-title">Support with a Tip</h2>
+        <p style="color: var(--text-secondary); text-align: center; margin-bottom: 2rem;">All mods and tools are free, but your support helps keep development going!</p>
+        <div class="card-grid">
+          
+          <article class="card">
+            <h3 class="card-title">Small Tip</h3>
+            <p class="price">$5</p>
+            <p class="card-description">Buy me a coffee</p>
+            <button class="btn btn-primary" onclick="cart.addItem({ id: 'tip-tip-5', name: 'Small Tip', price: 5, type: 'tip', description: 'Buy me a coffee' })">
+              Add to Cart
+            </button>
+          </article>
+          
+          <article class="card">
+            <h3 class="card-title">Medium Tip</h3>
+            <p class="price">$10</p>
+            <p class="card-description">Support my work</p>
+            <button class="btn btn-primary" onclick="cart.addItem({ id: 'tip-tip-10', name: 'Medium Tip', price: 10, type: 'tip', description: 'Support my work' })">
+              Add to Cart
+            </button>
+          </article>
+          
+          <article class="card">
+            <h3 class="card-title">Large Tip</h3>
+            <p class="price">$25</p>
+            <p class="card-description">Generous contribution</p>
+            <button class="btn btn-primary" onclick="cart.addItem({ id: 'tip-tip-25', name: 'Large Tip', price: 25, type: 'tip', description: 'Generous contribution' })">
+              Add to Cart
+            </button>
+          </article>
+          
+        </div>
       </section>
 
       <!-- Commission Section -->
       <section aria-labelledby="commission-heading" class="mt-lg">
-        <h2 id="commission-heading" class="section-title" data-content="pages.shop.commissionTitle"></h2>
+        <h2 id="commission-heading" class="section-title">Commission Custom Work</h2>
 
         <article class="card" style="max-width: 800px; margin: 0 auto;">
-          <h3 style="color: var(--accent-light); font-size: 1.5rem; margin-bottom: 1rem;" data-content="pages.shop.commissionSubtitle"></h3>
-          <p class="card-description" data-content="pages.shop.commissionIntro"></p>
+          <h3 style="color: var(--accent-light); font-size: 1.5rem; margin-bottom: 1rem;">Need a Custom Mod or Tool?</h3>
+          <p class="card-description">I offer custom mod development services tailored to your specific needs. Whether you need a unique gameplay mechanic, a custom server mod, or a specialized tool, I can help bring your vision to life.</p>
 
-          <h4 style="color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;" data-content="pages.shop.whatICanBuild.title"></h4>
+          <h4 style="color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">What I Can Build:</h4>
           <ul style="color: var(--text-secondary); margin-left: 2rem; line-height: 2;">
-            <li data-content="pages.shop.whatICanBuild.items.0"></li>
-            <li data-content="pages.shop.whatICanBuild.items.1"></li>
-            <li data-content="pages.shop.whatICanBuild.items.2"></li>
-            <li data-content="pages.shop.whatICanBuild.items.3"></li>
-            <li data-content="pages.shop.whatICanBuild.items.4"></li>
-            <li data-content="pages.shop.whatICanBuild.items.5"></li>
+            <li>Custom gameplay mechanics and features</li>
+            <li>Server-side mods for multiplayer</li>
+            <li>UI modifications and enhancements</li>
+            <li>Integration with existing mods</li>
+            <li>Custom tools and utilities</li>
+            <li>Mod optimization and bug fixes</li>
           </ul>
 
-          <h4 style="color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;" data-content="pages.shop.process.title"></h4>
+          <h4 style="color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Process:</h4>
           <ol style="color: var(--text-secondary); margin-left: 2rem; line-height: 2;">
-            <li data-content="pages.shop.process.steps.0"></li>
-            <li data-content="pages.shop.process.steps.1"></li>
-            <li data-content="pages.shop.process.steps.2"></li>
-            <li data-content="pages.shop.process.steps.3"></li>
-            <li data-content="pages.shop.process.steps.4"></li>
-            <li data-content="pages.shop.process.steps.5"></li>
+            <li>Contact me with your project idea</li>
+            <li>We'll discuss requirements and scope</li>
+            <li>Receive a personalized quote</li>
+            <li>Regular updates during development</li>
+            <li>Testing and refinement</li>
+            <li>Final delivery with documentation</li>
           </ol>
 
           <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
             <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-              <strong style="color: var(--accent-light);" data-content="pages.shop.pricing.label"></strong>
-              <span data-content="pages.shop.pricing.text"></span>
+              <strong style="color: var(--accent-light);">Pricing:</strong>
+              Starting at $50 for simple mods. Complex projects quoted individually based on scope and requirements.
             </p>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-              <strong style="color: var(--accent-light);" data-content="pages.shop.turnaround.label"></strong>
-              <span data-content="pages.shop.turnaround.text"></span>
+              <strong style="color: var(--accent-light);">Turnaround:</strong>
+              Typically 1-4 weeks depending on complexity.
             </p>
-            <button class="btn btn-primary btn-lg" onclick="contactForCommission()" data-content="pages.shop.commissionButton"></button>
+            <button class="btn btn-primary btn-lg" onclick="contactForCommission()">Contact for Commission</button>
           </div>
         </article>
       </section>
@@ -92,21 +120,21 @@
       <!-- FAQ Section -->
       <section class="mt-lg">
         <article class="card">
-          <h2 class="section-title" data-content="pages.shop.faqTitle"></h2>
+          <h2 class="section-title">Frequently Asked Questions</h2>
 
           <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;" data-content="pages.shop.faqs.0.question"></h3>
-            <p class="card-description" data-content="pages.shop.faqs.0.answer"></p>
+            <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;">Are tips required to use the mods?</h3>
+            <p class="card-description">No! All mods and tools are completely free. Tips are purely voluntary and help support ongoing development.</p>
           </div>
 
           <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;" data-content="pages.shop.faqs.1.question"></h3>
-            <p class="card-description" data-content="pages.shop.faqs.1.answer"></p>
+            <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;">What payment methods do you accept?</h3>
+            <p class="card-description">PayPal, Credit/Debit cards, and cryptocurrency. All transactions are secure.</p>
           </div>
 
           <div>
-            <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;" data-content="pages.shop.faqs.2.question"></h3>
-            <p class="card-description" data-content="pages.shop.faqs.2.answer"></p>
+            <h3 style="color: var(--accent-light); margin-bottom: 0.5rem;">Do you offer refunds on commissions?</h3>
+            <p class="card-description">Yes, if I'm unable to deliver what was agreed upon. We'll work together to ensure you're satisfied with the final product.</p>
           </div>
         </article>
       </section>
@@ -117,44 +145,43 @@
   <div id="cart-modal" class="modal-overlay hidden">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" data-content="cart.title"></h2>
+        <h2 class="modal-title">Shopping Cart</h2>
         <button class="modal-close" onclick="closeCart()" aria-label="Close cart">&times;</button>
       </div>
 
       <div id="empty-cart" class="empty-cart">
-        <p data-content="cart.emptyMessage"></p>
+        <p>Your cart is empty</p>
       </div>
 
       <div id="cart-items"></div>
 
       <div id="cart-total" class="cart-total hidden">
-        <span data-content="cart.total"></span>
-        <span class="price" data-content="cart.pricePrefix"></span>
+        <span>Total:</span>
+        <span class="price">$</span>
       </div>
 
       <div class="mt-lg" style="display: flex; gap: 1rem;">
-        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;" data-content="cart.checkoutButton"></button>
-        <button class="btn btn-secondary" onclick="cart.clearCart()" data-content="cart.clearButton"></button>
+        <button class="btn btn-primary btn-lg" onclick="checkout()" style="flex: 1;">Checkout</button>
+        <button class="btn btn-secondary" onclick="cart.clearCart()">Clear Cart</button>
       </div>
     </div>
   </div>
 
   <!-- JavaScript -->
-  <script src="js/data-loader.js"></script>
   <script src="js/cart.js"></script>
   <script>
-        function contactForCommission() {
-      const content = window.siteContent;
-      const defaultMessage = 'Thank you for your interest in custom work!';
-      const template = content?.commission?.alertMessage ?? defaultMessage;
-      const email = content?.site?.email ?? '';
-      const message = template.includes('{email}') ? template.replace('{email}', email) : template || defaultMessage;
-      alert(message);
-    }
-      const message = messageTemplate.replace('{email}', email);
+    function contactForCommission() {
+      const message = `Thank you for your interest in custom work!
+
+Please send me an email at {email} with:
+- Project description
+- Desired features
+- Timeline
+- Budget range
+
+I'll get back to you within 24-48 hours!`.replace('{email}', 'crazeeivan@pzemporium.com');
       alert(message);
     }
   </script>
 </body>
 </html>
-
